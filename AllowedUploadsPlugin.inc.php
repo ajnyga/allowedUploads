@@ -120,10 +120,15 @@ class AllowedUploadsPlugin extends GenericPlugin {
 		$extension = array_pop(explode('.',$fileName));
 				
 		$allowedExtensions = $this->getSetting($context->getId(), 'allowedExtensions');
-		$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
 		
-		if (!in_array($extension, $allowedExtensionsArray)){
-			$form->addError('fileType', __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions)));
+		if ($allowedExtensions){
+
+			$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
+			
+			if (!in_array($extension, $allowedExtensionsArray)){
+				$form->addError('fileType', __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions)));
+			}
+		
 		}
 
 		return false;
