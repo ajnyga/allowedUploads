@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/generic/allowedUploads/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Allowed Uploads plugin localization strings
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+
+	<message key="plugins.generic.allowedUploads.displayName">Allowed Uploads Plugin</message>
+	<message key="plugins.generic.allowedUploads.description">Allowed Uploads plugin enables journal to choose the filetypes that are allowed. NOTE! This is not a security plugin! Please make sure that the OJS files directory is outside the web root.</message>
+	
+	<message key="plugins.generic.allowedUploads.error">The journal only allows submission files in following formats: {$allowedExtensions}.</message>
+
+	<message key="plugins.generic.allowedUploads.manager.settings.description">Add a semicolon separated list of allowed file extensions. For example doc; docx; pdf; gif; jpg and click OK.</message>
+	<message key="plugins.generic.allowedUploads.manager.settings.allowedExtensions">Allowed file extensions</message>
+	
+	
+</locale>
