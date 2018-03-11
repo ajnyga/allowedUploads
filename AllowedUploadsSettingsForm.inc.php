@@ -10,7 +10,7 @@
  * @class AllowedUploadsSettingsForm
  * @ingroup plugins_generic_allowedUploads
  *
- * @brief Form for journal managers to modify Allowed Uploads plugin settings
+ * @brief Form for managers to modify Allowed Uploads plugin settings
  */
 
 import('lib.pkp.classes.form.Form');
@@ -18,7 +18,7 @@ import('lib.pkp.classes.form.Form');
 class AllowedUploadsSettingsForm extends Form {
 
 	/** @var int */
-	var $_journalId;
+	var $_contextId;
 
 	/** @var object */
 	var $_plugin;
@@ -26,10 +26,10 @@ class AllowedUploadsSettingsForm extends Form {
 	/**
 	 * Constructor
 	 * @param $plugin AllowedUploadsPlugin
-	 * @param $journalId int
+	 * @param $contextId int
 	 */
-	function __construct($plugin, $journalId) {
-		$this->_journalId = $journalId;
+	function __construct($plugin, $contextId) {
+		$this->_contextId = $contextId;
 		$this->_plugin = $plugin;
 
 		parent::__construct($plugin->getTemplatePath() . 'settingsForm.tpl');
@@ -43,7 +43,7 @@ class AllowedUploadsSettingsForm extends Form {
 	 */
 	function initData() {
 		$this->_data = array(
-			'allowedExtensions' => $this->_plugin->getSetting($this->_journalId, 'allowedExtensions'),
+			'allowedExtensions' => $this->_plugin->getSetting($this->_contextId, 'allowedExtensions'),
 		);
 	}
 
@@ -68,7 +68,7 @@ class AllowedUploadsSettingsForm extends Form {
 	 * Save settings.
 	 */
 	function execute() {
-		$this->_plugin->updateSetting($this->_journalId, 'allowedExtensions', $this->getData('allowedExtensions'), 'string');
+		$this->_plugin->updateSetting($this->_contextId, 'allowedExtensions', $this->getData('allowedExtensions'), 'string');
 	}
 
 }

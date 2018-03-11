@@ -26,8 +26,9 @@ class AllowedUploadsPlugin extends GenericPlugin {
 		$success = parent::register($category, $path);
 		if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) return true;
 		if ($success && $this->getEnabled()) {
-			
+
 			HookRegistry::register('submissionfilesuploadform::validate', array($this, 'checkUpload'));
+
 		}
 		return $success;
 	}
@@ -105,8 +106,7 @@ class AllowedUploadsPlugin extends GenericPlugin {
 	function getTemplatePath($inCore = false) {
 		return parent::getTemplatePath($inCore) . 'templates/';
 	}
-	
-	
+
 	/**
 	 * Check the uploaded file
 	 */
@@ -114,27 +114,26 @@ class AllowedUploadsPlugin extends GenericPlugin {
 		$form = $params[0];
 		$request = Application::getRequest();
 		$context = $request->getContext();
-		
+
 		$userVars = $request->getUserVars();
 		$fileName = $userVars['name'];
 		$extension = array_pop(explode('.',$fileName));
-				
-		$allowedExtensions = $this->getSetting($context->getId(), 'allowedExtensions');
 		
+		$allowedExtensions = $this->getSetting($context->getId(), 'allowedExtensions');
+
 		if ($allowedExtensions){
 
 			$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
-			
+
 			if (!in_array($extension, $allowedExtensionsArray)){
 				$form->addError('fileType', __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions)));
 			}
-		
-		}
 
+		}
 		return false;
 	}
-	
-	
+
+
 }
 
 ?>

@@ -11,17 +11,17 @@
 <script>
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#gaSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#allowedUploadsSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="gaSettingsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="manage" category="generic" plugin=$pluginName verb="settings" save=true}">
+<form class="pkp_form" id="allowedUploadsSettingsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="manage" category="generic" plugin=$pluginName verb="settings" save=true}">
 	{csrf}
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="gaSettingsFormNotification"}
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="allowedUploadsSettingsFormNotification"}
 
 	<div id="description">{translate key="plugins.generic.allowedUploads.manager.settings.description"}</div>
 
-	{fbvFormArea id="webFeedSettingsFormArea"}
+	{fbvFormArea id="allowedUploadsSettingsFormArea"}
 		{fbvElement type="text" name="allowedExtensions" value=$allowedExtensions label="plugins.generic.allowedUploads.manager.settings.allowedExtensions"}
 	{/fbvFormArea}
 
