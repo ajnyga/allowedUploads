@@ -118,7 +118,7 @@ class AllowedUploadsPlugin extends GenericPlugin {
 		$userVars = $request->getUserVars();
 		$fileName = $userVars['name'];
 		$extension = array_pop(explode('.',$fileName));
-		
+
 		$allowedExtensions = $this->getSetting($context->getId(), 'allowedExtensions');
 
 		if ($allowedExtensions){
@@ -133,7 +133,5 @@ class AllowedUploadsPlugin extends GenericPlugin {
 		return false;
 	}
 
-
 }
-
 ?>

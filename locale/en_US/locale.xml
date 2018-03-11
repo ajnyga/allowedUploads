@@ -13,7 +13,7 @@
  
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.generic.allowedUploads.displayName">Allowed Uploads Plugin</message>
-	<message key="plugins.generic.allowedUploads.description">Allowed Uploads plugin enables journal to choose the filetypes that are allowed. NOTE! This is not a security plugin! Please make sure that the files directory is outside the web root.</message>
+	<message key="plugins.generic.allowedUploads.description">Allowed Uploads plugin enables to choose the filetypes that are allowed when submitting a manuscript. NOTE! This is not a security plugin! Please make sure that the files directory is outside the web root.</message>
 	<message key="plugins.generic.allowedUploads.error">Only the following file extensions are allowed: {$allowedExtensions}.</message>
 	<message key="plugins.generic.allowedUploads.manager.settings.description">Add a semicolon separated list of allowed file extensions. For example doc; docx; pdf; gif; jpg and click OK.</message>
 	<message key="plugins.generic.allowedUploads.manager.settings.allowedExtensions">Allowed file extensions</message>
