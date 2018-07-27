@@ -117,7 +117,7 @@ class AllowedUploadsPlugin extends GenericPlugin {
 
 		$userVars = $request->getUserVars();
 		$fileName = $userVars['name'];
-		$extension = array_pop(explode('.',$fileName));
+		$extension = strtolower(array_pop(explode('.',$fileName)));
 
 		$allowedExtensions = $this->getSetting($context->getId(), 'allowedExtensions');
 

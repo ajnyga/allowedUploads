@@ -22,7 +22,7 @@
 	<div id="description">{translate key="plugins.generic.allowedUploads.manager.settings.description"}</div>
 
 	{fbvFormArea id="allowedUploadsSettingsFormArea"}
-		{fbvElement type="text" name="allowedExtensions" value=$allowedExtensions label="plugins.generic.allowedUploads.manager.settings.allowedExtensions"}
+		{fbvElement type="text" id="allowedExtensions" name="allowedExtensions" value=$allowedExtensions label="plugins.generic.allowedUploads.manager.settings.allowedExtensions"}
 	{/fbvFormArea}
 
 	{fbvFormButtons}
