@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/generic/allowedUploads/locale/ar_IQ/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+  *
+  * Allowed Uploads plugin localization strings
+  -->
+ 
+<locale name="ar_IQ" full_name="العربية">
+	<message key="plugins.generic.allowedUploads.displayName">إضافة المرفوعات المقبولة</message>
+	<message key="plugins.generic.allowedUploads.description">إضافة المرفوعات المقبولة تمكنك من اختيار أنواع الملفات المسموح بها أن تُرفع إلى موقعك عندما يتقدم المؤلف بطلب النشر. ملاحظة: هذه ليست إضافة متخصصة بالأمان! لطفاً، تأكد من أن حافظة ملفات المرفوعات تقع خارج مسار منبع ملفات الموقع.</message>
+	<message key="plugins.generic.allowedUploads.error">فقط الملفات التي تحتوي على الامتدادات الآتية مسموح لها: {$allowedExtensions}.</message>
+	<message key="plugins.generic.allowedUploads.manager.settings.description">أضف قائمة بامتدادات الملفات المسموح لها مفصولاً بينها بفارزة منقوطة إنجليزية. على سبيل المثال doc; docx; pdf; gif; jpg ثم انقر تمام.</message>
+	<message key="plugins.generic.allowedUploads.manager.settings.allowedExtensions">امتدادات الملفات المسموحة</message>
+</locale>
