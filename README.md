@@ -11,3 +11,6 @@ Copy the plugin folder to plugins/generic/ and enable it. Edit the plugin settin
 TODO
 - Add checks and validation when saving the allowed file extensions list
 
+***
+Plugin created by The Federation of Finnish Learned Societies (https://tsv.fi/en/).
+***
