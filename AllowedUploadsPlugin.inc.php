@@ -27,8 +27,8 @@ class AllowedUploadsPlugin extends GenericPlugin {
 		if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) return true;
 		if ($success && $this->getEnabled()) {
 
-			HookRegistry::register('SubmissionFile::validate', array($this, 'checkUpload'));
-
+			HookRegistry::register('SubmissionFile::validate', array($this, 'checkUploadWizard'));
+			HookRegistry::register('submissionfilesuploadform::validate', array($this, 'checkUpload'));
 		}
 		return $success;
 	}
@@ -101,9 +101,9 @@ class AllowedUploadsPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * Check the uploaded file
+	 * Check the uploaded file in wizard
 	 */
-	function checkUpload($hookName, $params) {
+	function checkUploadWizard($hookName, $params) {
 		$errors =& $params[0];
 		$props = $params[2];
 		$locale = $params[4];
@@ -123,6 +123,34 @@ class AllowedUploadsPlugin extends GenericPlugin {
 			}
 		}
 	}
+
+	/**
+	 * Check the uploaded file
+	 */
+	function checkUpload($hookName, $params) {	
+		$form = $params[0];
+		$request = Application::getRequest();
+		$context = $request->getContext();
+
+		$userVars = $request->getUserVars();
+		$fileName = $userVars['name'];
+		$tmp = explode('.',$fileName);
+		$extension = strtolower(end($tmp));
+
+		$allowedExtensions = $this->getSetting($context->getId(), 'allowedExtensions');
+
+		if ($allowedExtensions){
+
+			$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
+
+			if (!in_array($extension, $allowedExtensionsArray)){
+				$form->addError('fileType', __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions)));
+			}
+
+		}
+		return false;
+	}
+
 
 }
 ?>
