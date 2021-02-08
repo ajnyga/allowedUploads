@@ -104,22 +104,25 @@ class AllowedUploadsPlugin extends GenericPlugin {
 	 * Check the uploaded file in wizard
 	 */
 	function checkUploadWizard($hookName, $params) {
-		$errors =& $params[0];
-		$props = $params[2];
-		$locale = $params[4];
-		$request = Application::getRequest();
-		$context = $request->getContext();
+		
+		if ($params[1] == 'add'){
+			$errors =& $params[0];
+			$props = $params[2];
+			$locale = $params[4];
+			$request = Application::getRequest();
+			$context = $request->getContext();
 
-		$fileName = $props['name'][$locale];
-		$tmp = explode('.',$fileName);
-		$extension = strtolower(end($tmp));
+			$fileName = $props['name'][$locale];
+			$tmp = explode('.',$fileName);
+			$extension = strtolower(end($tmp));
 
-		$allowedExtensions = $this->getSetting($context->getId(), 'allowedExtensions');
+			$allowedExtensions = $this->getSetting($context->getId(), 'allowedExtensions');
 
-		if ($allowedExtensions){
-			$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
-			if (!in_array($extension, $allowedExtensionsArray)){
-				$errors['allowedExtensions'][$locale] = __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions));
+			if ($allowedExtensions){
+				$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
+				if (!in_array($extension, $allowedExtensionsArray)){
+					$errors['allowedExtensions'] = __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions));
+				}
 			}
 		}
 	}
