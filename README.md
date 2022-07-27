@@ -1,7 +1,7 @@
 Allowed Uploads
 ===============
 
-For OJS/OMP 3.2.1
+For OJS/OMP 3.3.0
 
 The plugin enables the editor to choose which file extensions are allowed in their journal. NOTE! This is *not* a security plugin. Make sure that your files directory is not a subdirectory of your OJS installation. For more details read the OJS installation instructions.
 

@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/allowedUploads/version.xml
   *
-  * Copyright (c) 2014-2021 Simon Fraser University
-  * Copyright (c) 2003-2021 John Willinsky
+  * Copyright (c) 2014-2022 Simon Fraser University
+  * Copyright (c) 2003-2022 John Willinsky
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Plugin version information.
@@ -13,8 +13,8 @@
 <version>
 	<application>allowedUploads</application>
 	<type>plugins.generic</type>
-	<release>1.1.0.1</release>
-	<date>2021-02-07</date>
+	<release>1.1.1.0</release>
+	<date>2022-07-27</date>
 	<lazy-load>1</lazy-load>
 	<class>AllowedUploadsPlugin</class>
 </version>

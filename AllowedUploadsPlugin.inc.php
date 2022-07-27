@@ -3,8 +3,8 @@
 /**
  * @file plugins/generic/allowedUploads/AllowedUploadsPlugin.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2003-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AllowedUploadsPlugin
@@ -104,12 +104,12 @@ class AllowedUploadsPlugin extends GenericPlugin {
 	 * Check the uploaded file in wizard
 	 */
 	function checkUploadWizard($hookName, $params) {
-		
+
 		if ($params[1] == 'add'){
 			$errors =& $params[0];
 			$props = $params[2];
 			$locale = $params[4];
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 
 			$fileName = $props['name'][$locale];
@@ -130,9 +130,9 @@ class AllowedUploadsPlugin extends GenericPlugin {
 	/**
 	 * Check the uploaded file
 	 */
-	function checkUpload($hookName, $params) {	
+	function checkUpload($hookName, $params) {
 		$form = $params[0];
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		$userVars = $request->getUserVars();
