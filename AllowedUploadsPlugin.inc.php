@@ -13,7 +13,13 @@
  * @brief Allowed Uploads plugin class
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+use APP\core\Application;
+use APP\template\TemplateManager;
+use PKP\core\JSONMessage;
+use PKP\plugins\GenericPlugin;
+use PKP\plugins\PluginRegistry;
+use PKP\validation\ValidatorFactory;
+
 
 class AllowedUploadsPlugin extends GenericPlugin {
 	/**
@@ -79,7 +85,6 @@ class AllowedUploadsPlugin extends GenericPlugin {
 			case 'settings':
 				$context = $request->getContext();
 
-				AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON,  LOCALE_COMPONENT_PKP_MANAGER);
 				$templateMgr = TemplateManager::getManager($request);
 				$templateMgr->registerPlugin('function', 'plugin_url', array($this, 'smartyPluginUrl'));
 
@@ -104,11 +109,11 @@ class AllowedUploadsPlugin extends GenericPlugin {
 	 * Check the uploaded file in wizard
 	 */
 	function checkUploadWizard($hookName, $params) {
+		$props = $params[2];
+		$locale = $params[4];
 
-		if ($params[1] == 'add'){
+		if ($fileName = $props['name'][$locale]){
 			$errors =& $params[0];
-			$props = $params[2];
-			$locale = $params[4];
 			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 
@@ -121,9 +126,11 @@ class AllowedUploadsPlugin extends GenericPlugin {
 			if ($allowedExtensions){
 				$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
 				if (!in_array($extension, $allowedExtensionsArray)){
-					$errors['allowedExtensions'] = __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions));
+					$errors['allowedExtensions'][$locale] = __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions));
 				}
 			}
+
+
 		}
 	}
 
