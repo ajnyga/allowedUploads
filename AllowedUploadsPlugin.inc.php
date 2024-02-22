@@ -116,7 +116,6 @@ class AllowedUploadsPlugin extends GenericPlugin {
 			$errors =& $params[0];
 			$request = Application::get()->getRequest();
 			$context = $request->getContext();
-
 			$fileName = $props['name'][$locale];
 			$tmp = explode('.',$fileName);
 			$extension = strtolower(end($tmp));
@@ -126,7 +125,7 @@ class AllowedUploadsPlugin extends GenericPlugin {
 			if ($allowedExtensions){
 				$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
 				if (!in_array($extension, $allowedExtensionsArray)){
-					$errors['allowedExtensions'][$locale] = __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions));
+					$errors[] = __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions));
 				}
 			}
 
@@ -141,7 +140,6 @@ class AllowedUploadsPlugin extends GenericPlugin {
 		$form = $params[0];
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
-
 		$userVars = $request->getUserVars();
 		$fileName = $userVars['name'];
 		$tmp = explode('.',$fileName);
@@ -154,7 +152,7 @@ class AllowedUploadsPlugin extends GenericPlugin {
 			$allowedExtensionsArray = array_filter(array_map('trim', explode(';', $allowedExtensions )), 'strlen');
 
 			if (!in_array($extension, $allowedExtensionsArray)){
-				$form->addError('fileType', __('plugins.generic.allowedUploads.error', array('allowedExtensions' => $allowedExtensions)));
+				$form->addError('allowedFileType', __('plugins.generic.allowedUploads.error', ['allowedExtensions' => $allowedExtensions]));
 			}
 
 		}
