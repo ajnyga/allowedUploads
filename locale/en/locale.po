@@ -25,3 +25,6 @@ msgstr "Add a semicolon separated list of allowed file extensions. For example d
 
 msgid "plugins.generic.allowedUploads.manager.settings.allowedExtensions"
 msgstr "Allowed file extensions"
+
+msgid "plugins.generic.allowedUploads.manager.settings.validationError"
+msgstr "Use semicolons to separate extensions (e.g. doc;pdf;docx)."
