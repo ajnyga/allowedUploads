@@ -1,0 +1,27 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-25T12:35:00+01:00\n"
+"PO-Revision-Date: 2026-09-25T12:35:00+01:00\n"
+"Language: \n"
+
+msgid "plugins.generic.allowedUploads.displayName"
+msgstr "Allowed Uploads Plugin"
+
+msgid "plugins.generic.allowedUploads.description"
+msgstr "Allowed Uploads Plugin permite selecionar os tipos de arquivo permitidos ao enviar um manuscrito. ATENÇÃO! Este não é um plugin de segurança! Certifique-se de que o diretório de arquivos esteja fora da raiz da web."
+
+msgid "plugins.generic.allowedUploads.error"
+msgstr "Apenas as seguintes extensões de arquivo são permitidas: {$allowedExtensions}."
+
+msgid "plugins.generic.allowedUploads.manager.settings.description"
+msgstr "Adicione uma lista de extensões de arquivo permitidas, separadas por ponto e vírgula. Por exemplo doc; docx; pdf; gif; jpg; e clique OK."
+
+msgid "plugins.generic.allowedUploads.manager.settings.allowedExtensions"
+msgstr "Extensões de arquivo permitidas"
